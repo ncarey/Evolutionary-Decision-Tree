@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export DECISION_TREE_HOME=$(pwd)
+echo $DECISION_TREE_HOME
