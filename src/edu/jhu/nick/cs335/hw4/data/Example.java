@@ -1,4 +1,4 @@
-package edu.jhu.nick.cs335.hw3.data;
+package edu.jhu.nick.cs335.hw4.data;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,6 +18,10 @@ public class Example {
 
   public Example() {
     classification = "None";
+    attributes = new HashMap<String,String>();
+  }
+  public Example(String mclass) {
+    classification = mclass;
     attributes = new HashMap<String,String>();
   }
 

@@ -1,8 +1,8 @@
-package edu.jhu.nick.cs335.hw3;
+package edu.jhu.nick.cs335.hw4;
 
-import edu.jhu.nick.cs335.hw3.tree.DecisionTreeNode;
-import edu.jhu.nick.cs335.hw3.data.Example;
-import edu.jhu.nick.cs335.hw3.tree.traditional.TraditionalDecisionTreeLearning;
+import edu.jhu.nick.cs335.hw4.tree.DecisionTreeNode;
+import edu.jhu.nick.cs335.hw4.data.Example;
+import edu.jhu.nick.cs335.hw4.tree.traditional.TraditionalDecisionTreeLearning;
 import java.io.FileInputStream;
 import java.io.DataInputStream;
 import java.io.BufferedReader;
@@ -45,8 +45,7 @@ public class RunDecisionTree {
           throw new Exception("line of input contained incorrect amount of data: " + splitLine.length + 
 		" elements opposed to " + (1 + congressDataAttributes.length) + " elements required");
         }
-        Example ex = new Example();
-        ex.setClassification(splitLine[0]);
+        Example ex = new Example(splitLine[0]);
         for(int i = 1; i < splitLine.length; i++){
           ex.addAttributeValuePair(congressDataAttributes[i-1], splitLine[i]);
         }

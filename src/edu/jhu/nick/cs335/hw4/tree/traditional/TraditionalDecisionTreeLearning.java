@@ -1,7 +1,7 @@
-package edu.jhu.nick.cs335.hw3.tree.traditional;
+package edu.jhu.nick.cs335.hw4.tree.traditional;
 
-import edu.jhu.nick.cs335.hw3.tree.DecisionTreeNode;
-import edu.jhu.nick.cs335.hw3.data.Example;
+import edu.jhu.nick.cs335.hw4.tree.DecisionTreeNode;
+import edu.jhu.nick.cs335.hw4.data.Example;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
