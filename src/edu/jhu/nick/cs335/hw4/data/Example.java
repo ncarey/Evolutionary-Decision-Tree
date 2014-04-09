@@ -1,5 +1,6 @@
 package edu.jhu.nick.cs335.hw4.data;
-
+import java.util.Iterator;
+import java.util.Set;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +36,14 @@ public class Example {
 
   public String getAttributeValue(String key) {
     return attributes.get(key);
+  }
+
+  public Iterator<String> getAttributeIterator() {
+    return attributes.keySet().iterator();
+  }
+
+  public Set<Map.Entry<String,String>> getAttrEntrySet() {
+    return attributes.entrySet();
   }
 
   public String getClassification() {
