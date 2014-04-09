@@ -20,7 +20,7 @@ public class DecisionTreeNode {
   private boolean isLeaf;
   
   /*
-   * Map attribute choices belonging to the root value to the resulting subtree
+   * Map values belonging to the root attribute to the resulting subtree
    */
   private HashMap<String, DecisionTreeNode> children;
  
@@ -31,8 +31,15 @@ public class DecisionTreeNode {
   private String attribute;
 
 
-  public DecisionTreeNode() {
+  public DecisionTreeNode(String attr, boolean leaf) {
+    this.attribute = attr;
+    this.isLeaf = leaf;
+    
+    children = new HashMap<String, DecisionTreeNode>();
+  }
 
+  public void addBranch(String value, DecisionTreeNode child) {
+    children.put(value, child);
   }
 
 

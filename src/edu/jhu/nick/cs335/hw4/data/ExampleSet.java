@@ -35,6 +35,20 @@ public class ExampleSet {
     attributeStats = new HashMap<String, HashMap<String, HashMap<String, Integer>>>();
   }
 
+  public int getExampleCount(){
+    return examples.size();
+  }
+
+  //returns true if all example classifications are the same
+  public boolean uniformClassification() {
+    for(Map.Entry<String, Integer> entry : classificationCounts.entrySet()) {
+      if(entry.getValue() == examples.size()){
+        return true;
+      }
+    }
+    return false;
+  }
+
   public void addExample(Example ex) {
     //add to examples list
     examples.add(ex);
@@ -64,10 +78,10 @@ public class ExampleSet {
           attributeStats.get(attr).put(val, classMap);
         }
       }else{
-        classMap = new HashMap<String, Integer>();
+        HashMap<String, Integer> classMap = new HashMap<String, Integer>();
         classMap.put(mclass, new Integer(1));
      
-        valMap = new HashMap<String, HashMap<String, Integer>>();        
+        HashMap<String, HashMap<String, Integer>> valMap = new HashMap<String, HashMap<String, Integer>>();        
         valMap.put(val, classMap);
 
         attributeStats.put(attr, valMap);
@@ -89,8 +103,8 @@ public class ExampleSet {
     return ret;
   }
   
-  public String mostCommonClassification(){
-    String maxClass = "N/A"
+  public String getMostCommonClassification(){
+    String maxClass = "N/A";
     Integer maxCount = new Integer(0);
     for(Map.Entry<String,Integer> entry : classificationCounts.entrySet()) {
       if(entry.getValue() > maxCount){
@@ -129,7 +143,7 @@ public class ExampleSet {
     return (entropy - infoGainSum);
   }
 
-  private double entropy(){
+  public double entropy(){
     double sum = 0;
     for(Map.Entry<String,Integer> entry : classificationCounts.entrySet()) {
       double Px = ((double)entry.getValue()) / ((double)examples.size());
@@ -143,9 +157,9 @@ public class ExampleSet {
    
     //first, calculate Split Information Value
     double infoValSum = 0.0;
+    int numExamples = examples.size();
     for(Map.Entry<String, HashMap<String,Integer>> valEntry : attributeStats.get(attribute).entrySet()){
   
-      int numExamples = examples.size();
       int numExamplesWithValue = 0;
       for(Map.Entry<String, Integer> entry : valEntry.getValue().entrySet()) {
         numExamplesWithValue += entry.getValue();

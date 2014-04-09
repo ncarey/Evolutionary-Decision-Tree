@@ -3,4 +3,4 @@
 export DECISION_TREE_HOME=$(pwd)
 echo $DECISION_TREE_HOME
 
-cd src; make
+cd src; make clean; make 

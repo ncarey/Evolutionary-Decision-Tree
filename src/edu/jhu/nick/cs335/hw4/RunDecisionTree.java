@@ -2,6 +2,7 @@ package edu.jhu.nick.cs335.hw4;
 
 import edu.jhu.nick.cs335.hw4.tree.DecisionTreeNode;
 import edu.jhu.nick.cs335.hw4.data.Example;
+import edu.jhu.nick.cs335.hw4.data.ExampleSet;
 import edu.jhu.nick.cs335.hw4.tree.traditional.TraditionalDecisionTreeLearning;
 import java.io.FileInputStream;
 import java.io.DataInputStream;
@@ -25,11 +26,11 @@ public class RunDecisionTree {
   /**
    * This method will read in the congressional voting data that
    * MUST BE LOCATED IN <PROJECTHOME>/data/CongressionalVoting/house-votes-84.names
-   * It will return an ArrayList of data entries
+   * It will return an ExampleSet representing the entire dataset
    */
-  public static ArrayList<Example> readCongressionalData(String projectHome) {
-  
-    ArrayList<Example> examples = new ArrayList<Example>();
+  public static ExampleSet readCongressionalData(String projectHome) {
+ 
+    ExampleSet examples = new ExampleSet();;
    
     try{
       
@@ -49,7 +50,7 @@ public class RunDecisionTree {
         for(int i = 1; i < splitLine.length; i++){
           ex.addAttributeValuePair(congressDataAttributes[i-1], splitLine[i]);
         }
-        examples.add(ex);
+        examples.addExample(ex);
       }
   
       in.close();
@@ -64,11 +65,17 @@ public class RunDecisionTree {
   public static void main(String[] args) {
     
     String projectHome = System.getenv("DECISION_TREE_HOME");
+ 
+    ExampleSet examples = readCongressionalData(projectHome);
+    System.out.println("Entropy: " + examples.entropy());
 
+  
+
+    /*
     ArrayList<Example> exs = readCongressionalData(projectHome);
     for(Example ex : exs) {
       System.out.println(ex.toString());
     }
-
+    */
   }
 }
