@@ -54,7 +54,7 @@ docs: $(SOURCES) | $(DOC_DIR)
 
 # pass driver class object to JRE
 run:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS)
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) mushroom gainRatio
 
 # make sure binary output directory exists
 $(BIN_DIR):

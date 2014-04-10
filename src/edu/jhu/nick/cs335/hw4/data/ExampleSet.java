@@ -1,7 +1,7 @@
 package edu.jhu.nick.cs335.hw4.data;
 
 import edu.jhu.nick.cs335.hw4.data.Example;
-
+import java.lang.Double;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
@@ -177,9 +177,16 @@ public class ExampleSet {
     }
 
     infoValSum = infoValSum * -1;
-    
     //next, fetch info gain and return ratio
     double infoGain = this.informationGain(attribute);
+
+    if(infoValSum == 0.0 || infoValSum == -0.0){
+      infoValSum = .000001;
+      if(infoGain == 0.0 || infoGain == -0.0){
+        return 1.0;
+      }
+    }
+
     return (infoGain / infoValSum);
   }
 }

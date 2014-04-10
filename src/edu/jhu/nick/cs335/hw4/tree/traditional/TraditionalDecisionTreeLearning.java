@@ -6,6 +6,7 @@ import edu.jhu.nick.cs335.hw4.data.ExampleSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.lang.Double;
 /**
  * This class implements the Decision-Tree-Learning algorithm described
  * on page 702 or the R&N textbook 3rd edition
@@ -38,7 +39,7 @@ public class TraditionalDecisionTreeLearning {
     }else{
       //find attribute with most importance to split on
       int maxIndex = 0;
-      double maxImportance = -99999;
+      double maxImportance = -Double.MAX_VALUE;
       String maxAttribute = "";
       for(int i = 0; i < attributes.size(); i++) {
         double curImportance = 0;
@@ -52,9 +53,13 @@ public class TraditionalDecisionTreeLearning {
           maxIndex = i;
           maxAttribute = attributes.get(i);
         }
+        System.out.println(attributes.get(i) + " has importance " + curImportance);        
       }
       attributes.remove(maxIndex);
-        
+  
+      System.out.println("Attribute " + maxAttribute + " selected with importance " + maxImportance);       
+
+ 
       //create tree node with most important attribute 
       DecisionTreeNode tree = new DecisionTreeNode(maxAttribute, false);
       //what to do with values not seen? take random branch? create 'other' value?      
