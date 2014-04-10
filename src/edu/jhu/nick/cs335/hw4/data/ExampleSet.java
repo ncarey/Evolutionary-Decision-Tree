@@ -39,6 +39,14 @@ public class ExampleSet {
     return examples.size();
   }
 
+  public List<Example> getExamples() {
+    return examples;
+  }
+
+  public Set<String> getValues(String attr) {
+    return attributeStats.get(attr).keySet();
+  }
+
   //returns true if all example classifications are the same
   public boolean uniformClassification() {
     for(Map.Entry<String, Integer> entry : classificationCounts.entrySet()) {

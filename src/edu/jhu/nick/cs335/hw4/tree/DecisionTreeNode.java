@@ -1,8 +1,9 @@
 package edu.jhu.nick.cs335.hw4.tree;
 
+import edu.jhu.nick.cs335.hw4.data.Example;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.Map;
 /**
  * Class that represents a Decision Tree Node and in turn, an entire Decision Tree
  * Each Decision Tree Node contains a attribute value which is either the resulting classification
@@ -38,9 +39,44 @@ public class DecisionTreeNode {
     children = new HashMap<String, DecisionTreeNode>();
   }
 
+  public String classify(Example example){
+    if(this.isLeaf){
+      return attribute;
+    }else{
+      String exampleVal = example.getAttributeValue(attribute);
+      for(Map.Entry<String, DecisionTreeNode> entry : children.entrySet()) {
+        if(entry.getKey().equals(exampleVal)){
+          return entry.getValue().classify(example);
+        }
+      }
+      return children.get("unseenValue").classify(example);
+    }
+  }  
+
   public void addBranch(String value, DecisionTreeNode child) {
     children.put(value, child);
   }
 
+  public String printMe(int tabCounter) {
+    String out = "";
+    String tab = "";
+    for(int i = 0; i < tabCounter; i++){
+      tab += "    ";
+    }
+    if(this.isLeaf){
+      out = tab + attribute + "\n";
+      return out;
+    }else{
+      out = tab + attribute + "\n";
+      for(Map.Entry<String, DecisionTreeNode> entry : children.entrySet()) {
+        if(entry.getKey().equals("unseenValue")){
+          continue;
+        }
+        out = out + tab + entry.getKey() + "\n";
+        out = out + entry.getValue().printMe(tabCounter + 1);
+      }
+      return out;
+    }
+  }
 
 }

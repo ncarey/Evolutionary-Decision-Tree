@@ -15,8 +15,13 @@ import java.util.Map;
  */
 public class TraditionalDecisionTreeLearning {
 
+  private boolean useRatio;
+
+  public TraditionalDecisionTreeLearning(boolean useGainRatio) {
+    useRatio = useGainRatio;
+  }
   
-  public DecisionTreeNode decisionTreeLearning(ExampleSet examples, ArrayList<String> attributes, ExampleSet parentExamples, boolean useRatio) {
+  public DecisionTreeNode decisionTreeLearning(ExampleSet examples, ArrayList<String> attributes, ExampleSet parentExamples) {
 
     if(examples.getExampleCount() == 0){
       //no examples present, return most likely classification of parentExamples
@@ -48,45 +53,29 @@ public class TraditionalDecisionTreeLearning {
           maxAttribute = attributes.get(i);
         }
       }
+      attributes.remove(maxIndex);
+        
       //create tree node with most important attribute 
       DecisionTreeNode tree = new DecisionTreeNode(maxAttribute, false);
-      //what to do with values not see? take random branch? create 'other' value?      
+      //what to do with values not seen? take random branch? create 'other' value?      
+      //we will create an 'other' branch that points to the value branch with greatest example cardinality
+      int maxVal = 0;
+      DecisionTreeNode otherBranch = null;
+      for(String val : examples.getValues(maxAttribute)) {
+        ExampleSet exs = examples.filter(maxAttribute, val);
+        int curVal = exs.getExampleCount();
+        DecisionTreeNode subtree = decisionTreeLearning(exs, attributes, examples);
+        tree.addBranch(val, subtree);
+   
+        if(curVal > maxVal){
+          maxVal = curVal;
+          otherBranch = subtree;
+        }
+      }
+      tree.addBranch("unseenValue", otherBranch);
+ 
 
-
-      return tree;
+      return tree; 
     }
   }
-
-  /**
-   * Given a set of data examples, outputs the most common classification of these examples
-   *
-   */
-  private String pluralityValue(ArrayList<Example> examples) {
-    
-    HashMap<String, Integer> counts = new HashMap<String, Integer>();
-    for(Example example : examples) {
-      String mclass = example.getClassification();
-      if(counts.containsKey(mclass)){
-        counts.put(mclass, counts.get(mclass) + 1);
-      }else{
-        counts.put(mclass, new Integer(1));
-      }
-    }
-    
-    String maxClass = "None";
-    Integer maxCount = new Integer(0);
-
-    for(Map.Entry<String,Integer> entry : counts.entrySet()) {
-      if(entry.getValue() > maxCount) {
-        maxCount = entry.getValue();
-        maxClass = entry.getKey();
-      }
-    }
-
-    return maxClass;
-  }
-
-  
-
-
 }
