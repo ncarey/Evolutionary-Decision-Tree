@@ -36,7 +36,56 @@ public class RunDecisionTree {
 	"stalk-color-below-ring","veil-type","veil-color","ring-number","ring-type","spore-print-color",
 	"population","habitat"};
 
+  private static String [] spliceDataClasses = {"N","EI","IE"};
+  private static String [] spliceDataAttributes = {"-30","-29","-28","-27","-26","-25","-24","-23","-22","-21","-20",
+	"-19","-18","-17","-16","-15","-14","-13","-12","-11","-10","-9","-8","-7","-6","-5","-4","-3","-2","-1",
+	"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23",
+	"24","25","26","27","28","29","30"};
 
+  /**
+   * This method will read in the splice data that
+   * MUST BE LOCATED IN <PROJECTHOME>/data/splice/splice.data
+   * It will return an ExampleSet representing the entire dataset
+   */
+  public static ArrayList<Example> readSpliceData(String projectHome) {
+ 
+    ArrayList<Example> examples = new ArrayList<Example>();;
+   
+    try{
+      
+      FileInputStream fstream = new FileInputStream(projectHome + "/data/splice/splice.data");
+      DataInputStream in = new DataInputStream(fstream);
+      BufferedReader br = new BufferedReader(new InputStreamReader(in));
+      String strLine;
+      
+      while ((strLine = br.readLine()) != null)   {
+        //System.out.println(strLine);
+        String [] splitLine = strLine.split(",");   
+        if(splitLine.length != 3) {
+          throw new Exception("line of input contained incorrect amount of data: " + splitLine.length + 
+		" elements opposed to " + 3 + " elements required");
+        }
+        String [] attribs = splitLine[2].trim().split("");
+        if(attribs.length - 1 != spliceDataAttributes.length){
+          throw new Exception("line of input contained incorrect amount of data: " + (attribs.length - 1) + 
+		" elements opposed to " + spliceDataAttributes.length + " elements required");
+        }
+
+        Example ex = new Example(splitLine[0].trim());
+        for(int i = 1; i < attribs.length; i++){
+          //System.out.println(spliceDataAttributes[i] + " " + attribs[i]);
+          ex.addAttributeValuePair(spliceDataAttributes[i-1], attribs[i]);
+        }
+        examples.add(ex);
+      }
+  
+      in.close();
+    } catch (Exception e) {
+      System.err.println("I/O Error: " + e.getMessage());
+    }
+
+    return examples;
+  }
   /**
    * This method will read in the mushroom data that
    * MUST BE LOCATED IN <PROJECTHOME>/data/mushroom/agaricus-lepiota.data
@@ -340,7 +389,22 @@ public class RunDecisionTree {
       }
 
     }else if(dataset.equals("splice")){
+      attributes = new ArrayList<String>(Arrays.asList(spliceDataAttributes));
+      classes = spliceDataClasses;
 
+      ArrayList<Example> exampleList = readSpliceData(projectHome);
+      
+      //split examples into training and test data
+      long seed = System.nanoTime();
+      Collections.shuffle(exampleList, new Random(seed));
+
+      for(int i = 0; i < exampleList.size(); i++){
+        if(i < exampleList.size() / splitFactor){
+          testExamples.add(exampleList.get(i));
+        }else{
+          trainExamples.addExample(exampleList.get(i));
+        }
+      }
     }else{
 
       System.out.println("Incorrect usage. Arguments should be <congress|monk1|monk2|monk3|mushroom|splice> <gain|gainRatio>");

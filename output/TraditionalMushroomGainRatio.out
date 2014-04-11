@@ -1,0 +1,19 @@
+java -cp ../bin edu.jhu.nick.cs335.hw4.RunDecisionTree  mushroom gainRatio
+Test Set Evaluation:
+	Statistics for class e
+		 Accuracy: 1.0
+		 Precision: 1.0
+		 Recall: 1.0
+	Statistics for class p
+		 Accuracy: 1.0
+		 Precision: 1.0
+		 Recall: 1.0
+Train Set Evaluation:
+	Statistics for class e
+		 Accuracy: 1.0
+		 Precision: 1.0
+		 Recall: 1.0
+	Statistics for class p
+		 Accuracy: 1.0
+		 Precision: 1.0
+		 Recall: 1.0

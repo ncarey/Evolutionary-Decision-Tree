@@ -54,8 +54,38 @@ docs: $(SOURCES) | $(DOC_DIR)
 
 # pass driver class object to JRE
 run:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) congress gain
+
+
+runcongressgain:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) congress gain
+runcongressgainRatio:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) congress gainRatio
+
+runmonk1gainRatio:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk1 gainRatio
+runmonk2gainRatio:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk2 gainRatio
+runmonk3gainRatio:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk3 gainRatio
+runmonk1gain:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk1 gain
+runmonk2gain:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk2 gain
+runmonk3gain:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk3 gain
+
+runmushroomgain:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) mushroom gain
+
+runmushroomgainRatio:
 	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) mushroom gainRatio
 
+runsplicegainRatio:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) splice gainRatio
+
+runsplicegain:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) splice gain
 # make sure binary output directory exists
 $(BIN_DIR):
 	mkdir $(BIN_DIR);

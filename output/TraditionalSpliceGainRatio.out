@@ -1,0 +1,27 @@
+java -cp ../bin edu.jhu.nick.cs335.hw4.RunDecisionTree  splice gainRatio
+Test Set Evaluation:
+	Statistics for class N
+		 Accuracy: 0.8918495297805643
+		 Precision: 0.9203821656050956
+		 Recall: 0.8678678678678678
+	Statistics for class EI
+		 Accuracy: 0.8040752351097179
+		 Precision: 0.6617647058823529
+		 Recall: 0.30612244897959184
+	Statistics for class IE
+		 Accuracy: 0.8432601880877743
+		 Precision: 0.61328125
+		 Recall: 0.9936708860759493
+Train Set Evaluation:
+	Statistics for class N
+		 Accuracy: 0.8090083798882681
+		 Precision: 0.7450980392156863
+		 Recall: 0.8910741301059002
+	Statistics for class EI
+		 Accuracy: 0.794360902255639
+		 Precision: 0.5994550408719346
+		 Recall: 0.3548387096774194
+	Statistics for class IE
+		 Accuracy: 0.795819335572975
+		 Precision: 0.527367506516073
+		 Recall: 0.9950819672131147

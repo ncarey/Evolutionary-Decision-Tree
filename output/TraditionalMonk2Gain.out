@@ -1,0 +1,19 @@
+java -cp ../bin edu.jhu.nick.cs335.hw4.RunDecisionTree  monk2 gain
+Test Set Evaluation:
+	Statistics for class 0
+		 Accuracy: 0.5949074074074074
+		 Precision: 0.6897689768976898
+		 Recall: 0.7206896551724138
+	Statistics for class 1
+		 Accuracy: 0.5949074074074074
+		 Precision: 0.37209302325581395
+		 Recall: 0.3380281690140845
+Train Set Evaluation:
+	Statistics for class 0
+		 Accuracy: 0.6272189349112426
+		 Precision: 0.675
+		 Recall: 0.7714285714285715
+	Statistics for class 1
+		 Accuracy: 0.6272189349112426
+		 Precision: 0.5102040816326531
+		 Recall: 0.390625

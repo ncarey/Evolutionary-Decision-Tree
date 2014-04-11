@@ -1,0 +1,19 @@
+java -cp ../bin edu.jhu.nick.cs335.hw4.RunDecisionTree  congress gain
+Test Set Evaluation:
+	Statistics for class republican
+		 Accuracy: 0.9310344827586207
+		 Precision: 0.8611111111111112
+		 Recall: 0.96875
+	Statistics for class democrat
+		 Accuracy: 0.9310344827586207
+		 Precision: 0.9803921568627451
+		 Recall: 0.9090909090909091
+Train Set Evaluation:
+	Statistics for class republican
+		 Accuracy: 0.9827586206896551
+		 Precision: 0.9710144927536232
+		 Recall: 0.9852941176470589
+	Statistics for class democrat
+		 Accuracy: 0.9827586206896551
+		 Precision: 0.9904761904761905
+		 Recall: 0.9811320754716981

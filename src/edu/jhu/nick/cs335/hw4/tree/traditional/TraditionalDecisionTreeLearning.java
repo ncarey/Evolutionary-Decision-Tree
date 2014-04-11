@@ -53,11 +53,11 @@ public class TraditionalDecisionTreeLearning {
           maxIndex = i;
           maxAttribute = attributes.get(i);
         }
-        System.out.println(attributes.get(i) + " has importance " + curImportance);        
+        //System.out.println(attributes.get(i) + " has importance " + curImportance);        
       }
       attributes.remove(maxIndex);
   
-      System.out.println("Attribute " + maxAttribute + " selected with importance " + maxImportance);       
+      //System.out.println("Attribute " + maxAttribute + " selected with importance " + maxImportance);       
 
  
       //create tree node with most important attribute 
