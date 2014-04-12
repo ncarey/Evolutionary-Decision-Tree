@@ -1,19 +1,20 @@
 java -cp ../bin edu.jhu.nick.cs335.hw4.RunDecisionTree  congress gainRatio
+Trainging took 0.038444535 seconds
 Test Set Evaluation:
 	Statistics for class republican
-		 Accuracy: 0.9770114942528736
-		 Precision: 0.96875
-		 Recall: 0.96875
+		 Accuracy: 0.8850574712643678
+		 Precision: 0.84375
+		 Recall: 0.84375
 	Statistics for class democrat
-		 Accuracy: 0.9770114942528736
-		 Precision: 0.9818181818181818
-		 Recall: 0.9818181818181818
+		 Accuracy: 0.8850574712643678
+		 Precision: 0.9090909090909091
+		 Recall: 0.9090909090909091
 Train Set Evaluation:
 	Statistics for class republican
-		 Accuracy: 0.9568965517241379
-		 Precision: 0.9006622516556292
-		 Recall: 1.0
+		 Accuracy: 0.9942528735632183
+		 Precision: 0.9926470588235294
+		 Recall: 0.9926470588235294
 	Statistics for class democrat
-		 Accuracy: 0.9568965517241379
-		 Precision: 1.0
-		 Recall: 0.9292452830188679
+		 Accuracy: 0.9942528735632183
+		 Precision: 0.9952830188679245
+		 Recall: 0.9952830188679245

@@ -1,27 +1,28 @@
 java -cp ../bin edu.jhu.nick.cs335.hw4.RunDecisionTree  splice gainRatio
+Trainging took 0.38411684 seconds
 Test Set Evaluation:
 	Statistics for class N
-		 Accuracy: 0.8918495297805643
-		 Precision: 0.9203821656050956
-		 Recall: 0.8678678678678678
+		 Accuracy: 0.8636363636363636
+		 Precision: 0.8619631901840491
+		 Recall: 0.8699690402476781
 	Statistics for class EI
-		 Accuracy: 0.8040752351097179
-		 Precision: 0.6617647058823529
-		 Recall: 0.30612244897959184
+		 Accuracy: 0.7789968652037618
+		 Precision: 0.6206896551724138
+		 Recall: 0.23225806451612904
 	Statistics for class IE
-		 Accuracy: 0.8432601880877743
-		 Precision: 0.61328125
-		 Recall: 0.9936708860759493
+		 Accuracy: 0.8495297805642633
+		 Precision: 0.6259842519685039
+		 Recall: 0.99375
 Train Set Evaluation:
 	Statistics for class N
-		 Accuracy: 0.8090083798882681
-		 Precision: 0.7450980392156863
-		 Recall: 0.8910741301059002
+		 Accuracy: 0.8091416608513607
+		 Precision: 0.746390458254865
+		 Recall: 0.8926426426426426
 	Statistics for class EI
-		 Accuracy: 0.794360902255639
-		 Precision: 0.5994550408719346
-		 Recall: 0.3548387096774194
+		 Accuracy: 0.7944381811349117
+		 Precision: 0.5915492957746479
+		 Recall: 0.3431372549019608
 	Statistics for class IE
-		 Accuracy: 0.795819335572975
-		 Precision: 0.527367506516073
-		 Recall: 0.9950819672131147
+		 Accuracy: 0.7955904334828101
+		 Precision: 0.526498696785404
+		 Recall: 0.9967105263157895

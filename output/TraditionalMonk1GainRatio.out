@@ -1,4 +1,5 @@
 java -cp ../bin edu.jhu.nick.cs335.hw4.RunDecisionTree  monk1 gainRatio
+Trainging took 0.022125126 seconds
 Test Set Evaluation:
 	Statistics for class 0
 		 Accuracy: 0.7314814814814815

@@ -1,0 +1,73 @@
+java -cp ../bin edu.jhu.nick.cs335.hw4.RunDecisionTree  congress gain evolutionary
+Generating random decision trees..
+Generated random decision tree 0
+Generated random decision tree 1
+Generated random decision tree 2
+Generated random decision tree 3
+Generated random decision tree 4
+Generated random decision tree 5
+Generated random decision tree 6
+Generated random decision tree 7
+Generated random decision tree 8
+Generated random decision tree 9
+Generated random decision tree 10
+Generated random decision tree 11
+Generated random decision tree 12
+Generated random decision tree 13
+Generated random decision tree 14
+Generated random decision tree 15
+Generated random decision tree 16
+Generated random decision tree 17
+Generated random decision tree 18
+Generated random decision tree 19
+Generated random decision tree 20
+Generated random decision tree 21
+Generated random decision tree 22
+Generated random decision tree 23
+Generated random decision tree 24
+Generated random decision tree 25
+Generated random decision tree 26
+Generated random decision tree 27
+Generated random decision tree 28
+Generated random decision tree 29
+Generated random decision tree 30
+Generated random decision tree 31
+Generated random decision tree 32
+Generated random decision tree 33
+Generated random decision tree 34
+Generated random decision tree 35
+Generated random decision tree 36
+Generated random decision tree 37
+Generated random decision tree 38
+Generated random decision tree 39
+Generated random decision tree 40
+Generated random decision tree 41
+Generated random decision tree 42
+Generated random decision tree 43
+Generated random decision tree 44
+Generated random decision tree 45
+Generated random decision tree 46
+Generated random decision tree 47
+Generated random decision tree 48
+Generated random decision tree 49
+Finished generating random decision trees
+Generation 1
+Trainging took 0.083261421 seconds
+Test Set Evaluation:
+	Statistics for class republican
+		 Accuracy: 0.7816091954022989
+		 Precision: 0.625
+		 Recall: 0.7407407407407407
+	Statistics for class democrat
+		 Accuracy: 0.7816091954022989
+		 Precision: 0.8727272727272727
+		 Recall: 0.8
+Train Set Evaluation:
+	Statistics for class republican
+		 Accuracy: 0.8304597701149425
+		 Precision: 0.7971014492753623
+		 Recall: 0.7801418439716312
+	Statistics for class democrat
+		 Accuracy: 0.8304597701149425
+		 Precision: 0.8523809523809524
+		 Recall: 0.8647342995169082

@@ -4,6 +4,7 @@ import edu.jhu.nick.cs335.hw4.data.Example;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 /**
  * Class that represents a Decision Tree Node and in turn, an entire Decision Tree
  * Each Decision Tree Node contains a attribute value which is either the resulting classification
@@ -39,6 +40,55 @@ public class DecisionTreeNode {
     children = new HashMap<String, DecisionTreeNode>();
   }
 
+  public boolean isLeafNode(){
+    return isLeaf;
+  }
+  public String getAttribute(){
+    return attribute;
+  }
+  public HashMap<String, DecisionTreeNode> getChildren(){
+    return children;
+  }
+
+  public void setNode(DecisionTreeNode other){
+    this.isLeaf = other.isLeafNode();
+    this.attribute = other.getAttribute();
+    this.children = other.getChildren();
+  }
+
+
+  public DecisionTreeNode getRandNode(Random rand){
+    if(this.isLeaf){
+      return this;
+    }else{
+      if(rand.nextInt(100) % 4 == 0){
+        return this;
+      }else{
+        //call on a random child          
+        // while(true){
+        if(children.keySet().size() == 0){
+          System.out.println("Error, has no children?");
+          return this;
+        }else{
+          DecisionTreeNode ret = null;        
+          for(Map.Entry<String, DecisionTreeNode> entry : children.entrySet()){
+            ret = entry.getValue().getRandNode(rand);
+            break;
+          }
+          return ret;
+        } 
+          /*
+          for(Map.Entry<String, DecisionTreeNode> entry : children.entrySet()){
+            if(rand.nextInt(12) % 4 == 0){
+              return entry.getValue().getRandNode(rand);
+            }          
+          }*/
+        
+      }
+    }
+  }
+
+
   public String classify(Example example){
     if(this.isLeaf){
       return attribute;
@@ -55,6 +105,18 @@ public class DecisionTreeNode {
 
   public void addBranch(String value, DecisionTreeNode child) {
     children.put(value, child);
+  }
+
+  public DecisionTreeNode deepCopy(){
+    if(this.isLeaf){
+      return new DecisionTreeNode(this.attribute, this.isLeaf);
+    }else{
+      DecisionTreeNode ret = new DecisionTreeNode(this.attribute, this.isLeaf);
+      for( Map.Entry<String, DecisionTreeNode> entry : this.children.entrySet()){
+        ret.addBranch(entry.getKey(), entry.getValue().deepCopy());
+      }
+      return ret;
+    }
   }
 
   public String printMe(int tabCounter) {

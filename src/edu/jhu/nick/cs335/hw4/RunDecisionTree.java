@@ -4,6 +4,7 @@ import edu.jhu.nick.cs335.hw4.tree.DecisionTreeNode;
 import edu.jhu.nick.cs335.hw4.data.Example;
 import edu.jhu.nick.cs335.hw4.data.ExampleSet;
 import edu.jhu.nick.cs335.hw4.tree.traditional.TraditionalDecisionTreeLearning;
+import edu.jhu.nick.cs335.hw4.tree.evolutionary.EvolutionaryDecisionTree;
 import java.io.FileInputStream;
 import java.io.DataInputStream;
 import java.io.BufferedReader;
@@ -200,8 +201,9 @@ public class RunDecisionTree {
     return examples;
   }
 
-  private static void outputStatistics(DecisionTreeNode root, String [] classes, ArrayList<Example> testExamples, List<Example> trainExamples) {
+  private static void outputStatistics(DecisionTreeNode root, String [] classes, ArrayList<Example> testExamples, List<Example> trainExamples, long duration) {
 
+    System.out.println("Trainging took " + ((double)duration / 1000000000.0) + " seconds");
     System.out.println("Test Set Evaluation:");
     for(int j = 0; j < classes.length; j++){
       String curClass = classes[j];
@@ -266,7 +268,6 @@ public class RunDecisionTree {
             falsePos++;
           }else{
             trueNeg++;
-            falsePos++;
           }
         }
       }
@@ -290,13 +291,15 @@ public class RunDecisionTree {
   
     String dataset = "";
     String useRatio = "";
-  
+    String algorithm = "";  
+
     try{
       dataset = args[0];
       useRatio = args[1];
+      algorithm = args[2];
 
     }catch(Exception e){
-      System.out.println("Incorrect usage. Arguments should be <congress|monk1|monk2|monk3|mushroom|splice> <gain|gainRatio>");
+      System.out.println("Incorrect usage. Arguments should be <congress|monk1|monk2|monk3|mushroom|splice> <gain|gainRatio> ");
       return;
     }
 
@@ -411,11 +414,17 @@ public class RunDecisionTree {
       return;
     }
 
-
-    DecisionTreeNode root = decision.decisionTreeLearning(trainExamples, attributes, trainExamples); 
-    //System.out.print(root.printMe(0));   
-    
-    outputStatistics(root, classes, testExamples, trainExamples.getExamples());
+    long duration = System.nanoTime();
+    DecisionTreeNode root;
+    if(algorithm.equals("evolutionary")){
+      EvolutionaryDecisionTree decTree = new EvolutionaryDecisionTree(trainExamples, classes, (attributes.toArray(new String[attributes.size()])), System.nanoTime());
+      root = decTree.geneticTreeLearning();
+    }else{
+      root = decision.decisionTreeLearning(trainExamples, attributes, trainExamples); 
+    }
+    duration = System.nanoTime() - duration;
+   
+    outputStatistics(root, classes, testExamples, trainExamples.getExamples(), duration);
 
   }
 }

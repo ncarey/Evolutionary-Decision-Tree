@@ -54,38 +54,54 @@ docs: $(SOURCES) | $(DOC_DIR)
 
 # pass driver class object to JRE
 run:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) congress gain
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) congress gain traditional
 
 
 runcongressgain:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) congress gain
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) congress gain traditional
 runcongressgainRatio:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) congress gainRatio
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) congress gainRatio traditional
 
 runmonk1gainRatio:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk1 gainRatio
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk1 gainRatio traditional
 runmonk2gainRatio:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk2 gainRatio
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk2 gainRatio traditional
 runmonk3gainRatio:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk3 gainRatio
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk3 gainRatio traditional
 runmonk1gain:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk1 gain
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk1 gain traditional
 runmonk2gain:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk2 gain
-runmonk3gain:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk3 gain
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk2 gain traditional
+runmonk3gain: 
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk3 gain traditional
 
 runmushroomgain:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) mushroom gain
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) mushroom gain traditional
 
 runmushroomgainRatio:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) mushroom gainRatio
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) mushroom gainRatio traditional
 
 runsplicegainRatio:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) splice gainRatio
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) splice gainRatio traditional
 
 runsplicegain:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) splice gain
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) splice gain traditional
+
+evoruncongress:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) congress gain evolutionary
+
+evorunmonk1:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk1 gainRatio evolutionary
+evorunmonk2:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk2 gainRatio evolutionary
+evorunmonk3:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) monk3 gainRatio evolutionary
+evorunmushroom:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) mushroom gain evolutionary
+
+evorunsplice:
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) $(JAVA_ARGS) splice gain evolutionary
+
 # make sure binary output directory exists
 $(BIN_DIR):
 	mkdir $(BIN_DIR);
