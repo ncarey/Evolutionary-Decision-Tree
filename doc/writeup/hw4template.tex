@@ -41,10 +41,10 @@
 % By default, LaTeX ignores extra whitespace, including single linebreaks.
 % If you leave a blank line inbetween two blocks of text, that is interpreted as
 % a paragraph break.
-\title{A Title: \\ with a more informative subtitle if appropriate}
+\title{Decision Tree Classifiers \\ A Comparative Study}
 
 % Put your name in the author field
-\author{Author's Name Here}
+\author{Nick Carey}
 
 % this begins the actual text of the document; everything before this is
 % refered to as "preamble"
@@ -78,98 +78,182 @@ abstract, but you don't need to do that for this course.
 \end{abstract}
 
 \section{Introduction}
-In the first section of your paper, which should be entitled ``Introduction,''
-% note the quotation marks; use `` and '' rather than " or the result won't look
-% right
-you should introduce the subject of your paper to the reader.  There are several
-components to this.  You probably want to begin by talking about what problem
-your work is trying to solve, and why it is a problem worth trying to solve.
-Explain to your reader why they should care.  This is also a good time to
-introduce basic nomenclature related to your subject.  You can assume that your
-reader is a reasonably well educated individual, and has some knowledge of
-computer science, but don't assume that they're an expert in your field.  You've
-spent a bunch of time studying your topic (in this case, decision trees), but
-your reader may not have.  Take the time to bring him or her up to speed; this
-is what the introduction is all about.
+It is incredibly valuable for a program, without human intervention, to make a 
+correct decision given a description of an environment or situation. With 
+traditional imperative programming, a programmer might specify all
+possible situations along with the correct decision for each situation. 
+However, in most applications this approach would be prohibitively labor-intensive
+and expensive.  Rather, if a program could be given examples of 
+situations paired with correct program behavior, perhaps it could learn 
+how to make the right decision in similar future situations. This is the fundamental
+machine learning problem of classification; a program, or classifier, must correctly classify, or categorize, 
+a previously unseen object based on past experiences and examples.
 
-For example, you might say something like: 
-\begin{quote}  % block-quote environment; again, note quotation marks in source
-``The problem of classification is a fundamental one in the field of machine
-learning.  Successful solutions to this problem form the basis for solving a wide
-variety of real world problems, from medical diagnosis to airport security to
-mobile robotics.  There are a variety of techniques for attempting to solve this
-problem, and none of them is perfect for all situations; the famous ``No free
-lunch'' theorem\cite{noFreeLunch} gurantees this.  It is therefore important to
-compare the results of different techniques to determine what the strengths and
-weaknesses of various algorithms are. 
+Classification is a very difficult task for a program to accomplish.  There exist
+many different techniques and algorithms for classification, and entire textbooks
+are devoted to different classification algorithms\cite{ML_Mitchell}.  There is no
+one best classification algorithm for all applications, as gaurenteed by the 
+''No Free Lunch'' theorem\cite{noFreeLunch}.  In fact, the best all-purpose classification
+programs are actually ensembles of classification algorithms where the final
+classification decision is typically the result of a special voting between
+many different classifiers running on the same dataset\cite{Opitz_Ensemble}.
+Yet even ensemble classifiers are not always ideal; it may require prohibitively many resources
+to be able to run several sub-classifiers at the same time on the same dataset. Also consider
+that an ensemble classifier will behave differently based on the 
+weighted importance of each sub-classifier\cite{Dynamic_Classifier}. 
 
-Decision trees are one technique for performing classification, based on the
-idea of making a series of decisions about a given data vector based on simple
-tests applied to elements of that vector.  The tree structure comes from the
-fact that each decision can have two outcomes, yielding a binary tree
-representing all possible paths through the set of decisions.  Leaf nodes of the
-tree represent the fact that the results from the tests along the way to that
-leaf add up to enough information to correctly classify that example.''
-\end{quote}
+Since there is no one best classification algorithm\cite{noFreeLunch}, it is useful to compare
+classifier performance in different situations.  With knowledge of the relative
+performance of classifiers we can make informed decisions on which classifier to 
+apply to a given application.  For example, some classifiers take a very long time 
+to come up with an answer, but the classification is very accurate; other classifiers may give
+an answer very quickly, but can be less accurate.  These properties, along with others, are
+important to consider when choosing a particular classifier for an application, or 
+when choosing which sub-classifiers to consider in an ensemble classifier\cite{Dynamic_Classifier}.
 
-Of course, you wouldn't write \emph{exactly} that, since that would be
-plagiarism.  But it should give you the general idea.  Also note that this, like
-the other examples in this paper, is just a short example of the kind of thing
-you should write.  Do not use them as a guide for length, or for the minimal
-content that should be covered, as more is expected from you on both counts.
+In this paper, we investigate properties of several different algorithms that generate
+decision tree classifiers.  Decision trees are a common and natural method for classifying an object
+based on that object's attributes\cite{Russell}.  A decision tree takes a list of 
+attributes belonging to an object and returns a classification for that object\cite{Russell}. 
+As indicated by its name, a decision tree follows a tree structure where tests on an object's attributes
+determine the path taken through the tree and the resulting object classification.
+Starting with the root node and at each node in the tree, a single attribute is examined.  
+Based on the value of the examined attribute,
+a path to a child node is taken.  By testing attributes and following a path
+through the tree based on the values of those attributes, eventually a leaf
+node is reached.  Each leaf node contains a classification, and arriving at a
+leaf node is equivalent to deciding a classification for the object under
+examination.
 
-In terms of overall length for this paper, quality of content is more important
-than length; you won't be penalized for your page count in this assignment.  As
-a rough guideline, however, your paper should probably be somewhere in the 12-18
-page range.  Shorter than that probably means that you're missing something
-important; longer probably means you're including stuff you don't need.
+Decision tree classifiers are appropriate for classifying a wide variety of objects.  More
+specifically, objects whose attributes can take a small, finite amount of values can easily
+be represented in a decision tree, whereas objects whose attributes could take any value from
+a continuous spectrum are not.  This is because for a given meaningful attribute, an accurate decision tree
+will have a child node for each possible value that the attribute could take.  If an object's attribute could take one
+of an infinite amount of values and each different value has an impact on the classification,
+a decision tree may not be a good classifier for that object.  The decision tree size would quickly become intractable.
 
-The introduction in a real paper is generally several pages, but yours doesn't
-need to be that long for this assignment.  It should, however, be long enough to
-convey the information you need to.  It should move from the initial, high level
-overview of the topic to a more detailed description of what other related work
-has been done on the topic, and any other background information needed to
-understand the later parts of the paper.  For example, you should talk about the
-advantages of evolutionary algorithms in general, and what other work has been
-done with them.  More specific details of the algorithms and techniques you used
-should wait for later sections.
 
-Because your introduction discusses prior related work, you should be sure to
-properly cite that prior related work.  If your introduction does not have at
-least a couple of citations, then it is either inadequate in scope, or it fails
-to properly cite works referenced.  Don't do either.  Later sections of the
-paper should also contain proper citations where needed, but the bulk of the
-citations in any given paper can usually be found in the introduction, as that
-is where the most related publications are discussed.
+This paper compares the relative performance of decision tree classifiers generated by two
+different decision tree learning algorithms. In Section 2 we describe decision tree classifiers and the
+algorithms that attempt to learn the optimal decision tree for a dataset.  In Section 3 we outline our experimental
+set-up for comparing the different decision tree algorithms. Section 4 shows the results of
+the experiments run, and Section 5 is a discussion of the experimental results.   
 
-While it is important to be respectful of well-known scientists in the field, it
-is stylistically inappropriate in science writing to directly praise or honor
-them.  Instead, make note of their (related) work using citations; this both
-indicates that you know of and respect them, and also gives someone reading your
-paper a place to find out more about them and their work.
 
-Your introduction should conclude by describing the organization of the rest of
-the paper; for example:
-\begin{quote}
-``In section 2, we describe the theoretical basis for our algorithm, and in section
-3, we describe the algorithm itself and our experiments with it.  In section 4
-we present the results of our experiments, and conclude in section 5 with a
-discussion of what these results mean, and possible directions for future
-work.''
-\end{quote}
 
-Not all papers have this sort of organizational statement, but it can be helpful
-due to the fact that the naming and organization of the sections in papers are
-not entirely standard.  While almost all scientific papers begin with an
-introduction, then discuss the experiments and results, and finally conclude,
-the precise organization of that middle part can vary somewhat based on the
-subject matter and the preferences of the author (or sometimes the journal).
+%In the first section of your paper, which should be entitled ``Introduction,''
+%% note the quotation marks; use `` and '' rather than " or the result won't look
+%% right
+%you should introduce the subject of your paper to the reader.  There are several
+%components to this.  You probably want to begin by talking about what problem
+%your work is trying to solve, and why it is a problem worth trying to solve.
+%Explain to your reader why they should care.  This is also a good time to
+%introduce basic nomenclature related to your subject.  You can assume that your
+%reader is a reasonably well educated individual, and has some knowledge of
+%computer science, but don't assume that they're an expert in your field.  You've
+%spent a bunch of time studying your topic (in this case, decision trees), but
+%your reader may not have.  Take the time to bring him or her up to speed; this
+%is what the introduction is all about.
+%
+%For example, you might say something like: 
+%\begin{quote}  % block-quote environment; again, note quotation marks in source
+%``The problem of classification is a fundamental one in the field of machine
+%learning.  Successful solutions to this problem form the basis for solving a wide
+%variety of real world problems, from medical diagnosis to airport security to
+%mobile robotics.  There are a variety of techniques for attempting to solve this
+%problem, and none of them is perfect for all situations; the famous ``No free
+%lunch'' theorem\cite{noFreeLunch} gurantees this.  It is therefore important to
+%compare the results of different techniques to determine what the strengths and
+%weaknesses of various algorithms are. 
+%
+%Decision trees are one technique for performing classification, based on the
+%idea of making a series of decisions about a given data vector based on simple
+%tests applied to elements of that vector.  The tree structure comes from the
+%fact that each decision can have two outcomes, yielding a binary tree
+%representing all possible paths through the set of decisions.  Leaf nodes of the
+%tree represent the fact that the results from the tests along the way to that
+%leaf add up to enough information to correctly classify that example.''
+%\end{quote}
+%
+%Of course, you wouldn't write \emph{exactly} that, since that would be
+%plagiarism.  But it should give you the general idea.  Also note that this, like
+%the other examples in this paper, is just a short example of the kind of thing
+%you should write.  Do not use them as a guide for length, or for the minimal
+%content that should be covered, as more is expected from you on both counts.
+%
+%In terms of overall length for this paper, quality of content is more important
+%than length; you won't be penalized for your page count in this assignment.  As
+%a rough guideline, however, your paper should probably be somewhere in the 12-18
+%page range.  Shorter than that probably means that you're missing something
+%important; longer probably means you're including stuff you don't need.
+%
+%The introduction in a real paper is generally several pages, but yours doesn't
+%need to be that long for this assignment.  It should, however, be long enough to
+%convey the information you need to.  It should move from the initial, high level
+%overview of the topic to a more detailed description of what other related work
+%has been done on the topic, and any other background information needed to
+%understand the later parts of the paper.  For example, you should talk about the
+%advantages of evolutionary algorithms in general, and what other work has been
+%done with them.  More specific details of the algorithms and techniques you used
+%should wait for later sections.
+%
+%Because your introduction discusses prior related work, you should be sure to
+%properly cite that prior related work.  If your introduction does not have at
+%least a couple of citations, then it is either inadequate in scope, or it fails
+%to properly cite works referenced.  Don't do either.  Later sections of the
+%paper should also contain proper citations where needed, but the bulk of the
+%citations in any given paper can usually be found in the introduction, as that
+%is where the most related publications are discussed.
+%
+%While it is important to be respectful of well-known scientists in the field, it
+%is stylistically inappropriate in science writing to directly praise or honor
+%them.  Instead, make note of their (related) work using citations; this both
+%indicates that you know of and respect them, and also gives someone reading your
+%paper a place to find out more about them and their work.
+%
+%Your introduction should conclude by describing the organization of the rest of
+%the paper; for example:
+%\begin{quote}
+%``In section 2, we describe the theoretical basis for our algorithm, and in section
+%3, we describe the algorithm itself and our experiments with it.  In section 4
+%we present the results of our experiments, and conclude in section 5 with a
+%discussion of what these results mean, and possible directions for future
+%work.''
+%\end{quote}
+%
+%Not all papers have this sort of organizational statement, but it can be helpful
+%due to the fact that the naming and organization of the sections in papers are
+%not entirely standard.  While almost all scientific papers begin with an
+%introduction, then discuss the experiments and results, and finally conclude,
+%the precise organization of that middle part can vary somewhat based on the
+%subject matter and the preferences of the author (or sometimes the journal).
 
 \section{Learning Decision Trees}
-Here, you should talk in more detail about the specifics of how decision trees
-are implemented, as a preface to the next subsection.
+%Here, you should talk in more detail about the specifics of how decision trees
+%are implemented, as a preface to the next subsection.
+Decision trees themselves are efficient classifiers.  To classify an object,
+all one needs to do is access the object's attributes and attribute values
+while traversing the decision tree.  If a decision tree has one test
+for each object attribute, then classification typically happens after a single
+access to each of the object's attributes.  The real work is done when 
+constructing a decision tree classifier from a set of objects used as training
+data.  The accuracy and inherent value of a decision tree classifier is only as 
+good as the learning algorithm that constructed it.
+
+A decision tree learning algorithm is given as input a set of training objects 
+along with the correct classification for each object.  The learning algorithm will
+then use the training objects to construct a decision tree classifier which will classify
+future objects similarly to the way the training objects were classified.
+In this section we present and describe two different algorithms for generating decision
+tree classifiers; in subsequent sections we compare the algorithms and their learned 
+classifiers with several experiments.
+
 
 \subsection{Information-Theoretic Methods}
+
+A trad
+
 Here, talk about traditional decision tree learning.  You can give the generic
 algorithm for decision tree learning, and talk about the need for a method for
 choosing which variable to add to the tree next, which leads you into the next
@@ -377,5 +461,3 @@ the middle).
 % end of your document.  Anything written after this tag will not be included in
 % the generated output.
 \end{document}
-
-For example, here is some text that will never show up.

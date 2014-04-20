@@ -1,0 +1,34 @@
+\begin{thebibliography}{1}
+
+\bibitem{ML_Mitchell}
+Thomas~M. Mitchell.
+\newblock {\em Machine Learning}.
+\newblock McGraw-Hill, Inc., New York, NY, USA, 1 edition, 1997.
+
+\bibitem{Opitz_Ensemble}
+D.~Opitz and R.~Maclin.
+\newblock Popular ensemble methods: An empirical study.
+\newblock {\em Journal of Artificial Intelligence Research}, 11:169--198, 1999.
+
+\bibitem{Russell}
+Stuart~J. Russell, Peter Norvig, John~F. Candy, Jitendra~M. Malik, and
+  Douglas~D. Edwards.
+\newblock {\em Artificial Intelligence: A Modern Approach}.
+\newblock Prentice-Hall, Inc., Upper Saddle River, NJ, USA, 3 edition, 1996.
+
+\bibitem{Dynamic_Classifier}
+Alixandre Santana, Rodrigo G.~F. Soares, Anne M.~P. Canuto, and Marc\'{\i}lio
+  Carlos~Pereira de~Souto.
+\newblock A dynamic classifier selection method to build ensembles using
+  accuracy and diversity.
+\newblock In Anne M.~P. Canuto, Marc\'{\i}lio Carlos~Pereira de~Souto, and
+  Ant{\^o}nio C.~Roque da~Silva, editors, {\em SBRN}, pages 36--41. IEEE
+  Computer Society, 2006.
+
+\bibitem{noFreeLunch}
+D.~H. Wolpert and W.~G. Macready.
+\newblock No free lunch theorems for optimization.
+\newblock {\em Evolutionary Computation, IEEE Transactions on}, 1(1):67--82,
+  1997.
+
+\end{thebibliography}

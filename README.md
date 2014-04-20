@@ -51,13 +51,3 @@ Listing of Files:
  - implementation of evolutionary decision tree algorithm
 
 
-Reflections:
-  I am pretty disappointed with this assignment. Again, I spent 70-80% of my time implementing
-  infrastructure, IO and other non-AI related programming.  I worked on this assignment at least 6 hours a
-  day for an entire week, and I felt most of my time was spent performing non-AI related coding.
-  Please provide code scaffolding in the future so that we may focus on AI concepts, not Object Oriented design
-  or input/output functions. 
-
-
-
-

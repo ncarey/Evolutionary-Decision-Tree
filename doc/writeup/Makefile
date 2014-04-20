@@ -29,7 +29,7 @@ all: $(TARGETS)
 # special target for every file
 %: %.tex | $(OUTDIR)
 	$(LATEX) $(FLAGS) $@.tex; \
-	$(BIBTEX) $(BIB_FLAGS) $@; \
+	$(BIBTEX) $(BIB_FLAGS)$@; \
 	$(LATEX) $(FLAGS) $@.tex; \
 	$(LATEX) $(FLAGS) $@.tex; 
 # Note that we do latex, followed by bibtex, followed by latex two more times.
