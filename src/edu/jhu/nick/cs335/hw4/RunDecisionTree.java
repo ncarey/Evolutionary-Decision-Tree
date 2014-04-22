@@ -283,6 +283,62 @@ public class RunDecisionTree {
 
   }
 
+  private static void outputStatistics2(DecisionTreeNode root, String [] classes, ArrayList<Example> testExamples, List<Example> trainExamples, long duration) {
+
+    System.out.print("" + ((double)duration / 1000000000.0) + ",");
+    //System.out.println("Test Set Evaluation:");
+    double avgA = 0.0;
+    double avgP = 0.0;
+    double avgR = 0.0;
+    for(int j = 0; j < classes.length; j++){
+      String curClass = classes[j];
+      //System.out.println("\tStatistics for class " + curClass);
+      int truePos = 0;
+      int trueNeg = 0;
+      int falsePos = 0;
+      int falseNeg = 0;
+      for(int i = 0; i < testExamples.size(); i++){
+        String actualClass = testExamples.get(i).getClassification();
+        String foundClass = root.classify(testExamples.get(i));
+   
+        //todo account for multivariate classifications
+        if(actualClass.equals(curClass)){
+          if(foundClass.equals(actualClass)){
+            truePos++;
+          }else{
+            falseNeg++;
+          }
+        }else{
+          if(foundClass.equals(actualClass)){
+            trueNeg++;
+          }else if(foundClass.equals(curClass)){
+            falsePos++;
+          }else{
+            trueNeg++;
+          }
+        }
+      }
+      int total = truePos + trueNeg + falsePos + falseNeg;
+      double accuracy = ((double)(trueNeg + truePos)) / (double)total;
+      double precision = ((double)truePos) / (double)(truePos + falsePos);
+      double recall = ((double)truePos) / (double)(truePos + falseNeg);
+      avgA += accuracy;
+      avgP += precision;
+      avgR += recall;
+     // System.out.println("\t\t Accuracy: " + accuracy);   
+     // System.out.println("\t\t Precision: " + precision);     
+     // System.out.println("\t\t Recall: " + recall); 
+    }
+    avgA = avgA / classes.length;
+    avgP = avgP / classes.length;
+    avgR = avgR / classes.length;
+    System.out.print("" + avgA + ",");   
+    System.out.print("" + avgP + ",");     
+    System.out.println("" + avgR); 
+    
+
+  }
+
 
   public static void main(String[] args) {
     
@@ -424,7 +480,7 @@ public class RunDecisionTree {
     }
     duration = System.nanoTime() - duration;
    
-    outputStatistics(root, classes, testExamples, trainExamples.getExamples(), duration);
+    outputStatistics2(root, classes, testExamples, trainExamples.getExamples(), duration);
 
   }
 }

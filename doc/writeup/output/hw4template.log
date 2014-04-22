@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.16)  20 APR 2014 16:23
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.16)  21 APR 2014 21:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -136,6 +136,43 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count100
+\c@ALG@rem=\count101
+\c@ALG@nested=\count102
+\ALG@tlm=\skip49
+\ALG@thistlm=\skip50
+\c@ALG@Lnr=\count103
+\c@ALG@blocknr=\count104
+\c@ALG@storecount=\count105
+\c@ALG@tmpcounter=\count106
+\ALG@tmplength=\skip51
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count107
+\float@exts=\toks26
+\float@box=\box28
+\@float@everytoks=\toks27
+\@floatcapt=\box29
+)
+\@float@every@algorithm=\toks28
+\c@algorithm=\count108
+)
 (./output/hw4template.aux)
 \openout1 = `hw4template.aux'.
 
@@ -154,17 +191,17 @@ LaTeX Font Info:    ... okay on input line 51.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count100
+\scratchcounter=\count109
 \scratchdimen=\dimen114
-\scratchbox=\box28
-\nofMPsegments=\count101
-\nofMParguments=\count102
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count103
+\scratchbox=\box30
+\nofMPsegments=\count110
+\nofMParguments=\count111
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count112
 \MPscratchDim=\dimen115
-\MPnumerator=\count104
-\makeMPintoPDFobject=\count105
-\everyMPtoPDFconversion=\toks27
+\MPnumerator=\count113
+\makeMPintoPDFobject=\count114
+\everyMPtoPDFconversion=\toks30
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -215,34 +252,42 @@ e
 ))
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
-<images/konane1.pdf, id=20, 240.9pt x 246.9225pt>
-File: images/konane1.pdf Graphic file (type pdf)
- <use images/konane1.pdf>
-Package pdftex.def Info: images/konane1.pdf used on input line 293.
-(pdftex.def)             Requested size: 180.67499pt x 185.19516pt.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 279--280
+[]\OT1/cmr/bx/n/12 func-tion \OT1/cmr/m/sc/12 de-ci-sion-Tree-Learn-ing\OT1/cmr
+/m/n/12 ($\OML/cmm/m/it/12 objects; attributes; parentObjects$\OT1/cmr/m/n/12 )
 
-[5 <./images/konane1.pdf>] [6] [7] (./output/hw4template.bbl [8]) [9]
-(./output/hw4template.aux) ) 
+ []
+
+[4] [5] [6]
+Overfull \hbox (8.5868pt too wide) in paragraph at lines 458--487
+ [] 
+ []
+
+[7] [8] (./output/hw4template.bbl) [9] (./output/hw4template.aux) ) 
 Here is how much of TeX's memory you used:
- 2181 strings out of 493485
- 29208 string characters out of 3143526
- 89197 words of memory out of 3000000
- 5470 multiletter control sequences out of 15000+200000
- 10888 words of font info for 39 fonts, out of 3000000 for 9000
+ 2800 strings out of 493485
+ 38030 string characters out of 3143526
+ 100952 words of memory out of 3000000
+ 6072 multiletter control sequences out of 15000+200000
+ 11189 words of font info for 40 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 37i,7n,23p,307b,260s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on ./output/hw4template.pdf (9 pages, 118930 bytes).
+ 37i,7n,23p,318b,271s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on ./output/hw4template.pdf (9 pages, 154017 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 78 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
